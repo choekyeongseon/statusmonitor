@@ -1,0 +1,25 @@
+<p style="font-size: 15px;">Showing {{ menge }} entries</p>
+<cdk-virtual-scroll-viewport itemSize="8" class="container">
+        <!-- 
+            오브젝트 들은 미리 생성 후 for문으로 넣는다: 
+            *스크롤을 내릴때마다 새로운div가 생성됨. 미리 다 생성되어있지않음 그게좋은점
+        
+            <div *cdkVirtualFor="let service of services" class="number"> ..
+        -->
+        <div *cdkVirtualFor="let service of services" class="object">
+            <a (click)="elementClick(service.serviceName)">
+                <div class="example-ripple-container mat-elevation-z4" matRipple>
+                    <div class="infos">
+                        <span class="title">{{service.serviceName}}</span><br>
+                        <span class="content">Offen</span>
+                        <span class="count">{{service.offen}}</span><br>
+                        <span class="content">In Bearbeitung</span>
+                        <span class="count">{{service.inBarbeitung}}</span><br>
+                        <span class="content">Gefixt</span>
+                        <span class="count">{{service.gefixt}}</span><br>
+                    </div>
+                </div>
+            </a>
+        </div>
+        </cdk-virtual-scroll-viewport>
+
